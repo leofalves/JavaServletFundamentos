@@ -12,12 +12,6 @@ public class Organization {
 		super();
 	}
 
-	public Organization(Integer id, String name) {
-		super();
-		this.id = id;
-		this.name = name;
-	}
-
 	public Integer getId() {
 		return id;
 	}

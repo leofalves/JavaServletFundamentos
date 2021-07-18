@@ -15,7 +15,9 @@
 	
 	<ul>
 		<c:forEach items="${ organizations }" var="org">
-			<li>${ org.name } - <fmt:formatDate value="${ org.openingDate }" pattern="dd/MM/yyyy"/></li>
+			<li>${ org.name } - <fmt:formatDate value="${ org.openingDate }" pattern="dd/MM/yyyy"/>
+			<a href="deleteOrg?id=${ org.id }">Excluir</a>
+			</li>
 		</c:forEach>
 	</ul>	
 </body>

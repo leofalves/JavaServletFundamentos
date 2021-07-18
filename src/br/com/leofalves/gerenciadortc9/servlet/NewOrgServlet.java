@@ -5,7 +5,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,15 +31,18 @@ public class NewOrgServlet extends HttpServlet {
 		}
 
 
-		Organization org = new Organization(1, orgName);
+		Organization org = new Organization();
+		org.setName(orgName);
 		org.setOpeningDate(openingDate);
 		BancoDados bd = new BancoDados();
 		bd.add(org);
 
+		response.sendRedirect("listOrg");
+		
 		//RequestDispatcher rd = request.getRequestDispatcher("/newOrgCreated.jsp");
-		RequestDispatcher rd = request.getRequestDispatcher("/listOrg");
-		request.setAttribute("orgName", org.getName());
-		rd.forward(request, response);
+		//RequestDispatcher rd = request.getRequestDispatcher("/listOrg");
+		//request.setAttribute("orgName", org.getName());
+		//rd.forward(request, response);
 	}
 
 }

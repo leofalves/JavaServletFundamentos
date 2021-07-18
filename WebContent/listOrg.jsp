@@ -21,5 +21,7 @@
 			</li>
 		</c:forEach>
 	</ul>	
+	<br />
+	<a href="formNewOrg.jsp">Criar nova Empresa</a>
 </body>
 </html>

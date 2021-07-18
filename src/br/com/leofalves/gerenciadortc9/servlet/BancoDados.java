@@ -48,4 +48,13 @@ public class BancoDados {
 		//	}
 		//}
 	}
+
+	public Organization findOrgById(Integer orgId) {
+		for (Organization organization : lista) {
+			if(organization.getId() == orgId) {
+				return organization;
+			}
+		}
+		return null;
+	}
 }

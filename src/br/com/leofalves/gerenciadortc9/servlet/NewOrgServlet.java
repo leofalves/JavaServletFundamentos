@@ -37,7 +37,8 @@ public class NewOrgServlet extends HttpServlet {
 		BancoDados bd = new BancoDados();
 		bd.add(org);
 
-		RequestDispatcher rd = request.getRequestDispatcher("/newOrgCreated.jsp");
+		//RequestDispatcher rd = request.getRequestDispatcher("/newOrgCreated.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/listOrg");
 		request.setAttribute("orgName", org.getName());
 		rd.forward(request, response);
 	}

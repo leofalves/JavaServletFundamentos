@@ -14,3 +14,5 @@ Para Deploy
 - Exportar o projeto com o formato .war
 - Copiar o .war para a pasta Webapps do Apache Tomcat
 - Inicializar o Tomcat, na pasta bin usar o startup.bat (win) ou startup.sh (linux)
+
+*OBS: O Tomcat, quando inicializado pela linha de comando, roda usando a versão do Java da variável de ambiente JAVA_HOME*

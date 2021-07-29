@@ -1,4 +1,4 @@
-package br.com.leofalves.gerenciadortc9.servlet;
+package br.com.leofalves.gerenciadortc9.acao;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -6,19 +6,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.leofalves.gerenciadortc9.model.BancoDados;
 import br.com.leofalves.gerenciadortc9.model.Organization;
 
-//@WebServlet("/editOrg")
-public class EditOrgServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+public class EditOrg {
+	
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Integer OrgId = Integer.valueOf(request.getParameter("id"));
 		String orgName = request.getParameter("OrgName");
 		String paramOpeningDate = request.getParameter("OpeningDate");
@@ -36,7 +32,9 @@ public class EditOrgServlet extends HttpServlet {
 		org.setName(orgName);
 		org.setOpeningDate(openingDate);
 		
-		response.sendRedirect("listOrg");
+		//response.sendRedirect("entrada?acao=ListOrg");
+		return "redirect:entrada?acao=ListOrg";
+
 	}
 
 }

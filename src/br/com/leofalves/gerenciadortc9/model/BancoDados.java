@@ -1,4 +1,4 @@
-package br.com.leofalves.gerenciadortc9.servlet;
+package br.com.leofalves.gerenciadortc9.model;
 
 import java.util.ArrayList;
 import java.util.Iterator;

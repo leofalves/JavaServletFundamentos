@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/newOrg")
+import br.com.leofalves.gerenciadortc9.model.BancoDados;
+import br.com.leofalves.gerenciadortc9.model.Organization;
+
+//@WebServlet("/newOrg")
 public class NewOrgServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

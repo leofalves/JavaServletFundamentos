@@ -10,7 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = "/listOrg", loadOnStartup = 1)
+import br.com.leofalves.gerenciadortc9.model.BancoDados;
+import br.com.leofalves.gerenciadortc9.model.Organization;
+
+//@WebServlet(urlPatterns = "/listOrg", loadOnStartup = 1)
 public class ListOrgServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	

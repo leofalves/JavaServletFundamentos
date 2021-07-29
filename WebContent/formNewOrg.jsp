@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:url value="/newOrg" var="LinkNewOrgServlet" />
+<c:url value="/entrada" var="LinkNewOrgServlet" />
 
 <html>
 <head>
@@ -11,6 +11,7 @@
 		Nome: <input type="text" name="OrgName"><br />
 		Data Abertura: <input type="date" name="OpeningDate"><br />
 		<input type="submit">
+		<input type="hidden" name="acao" value="NewOrg" />
 	</form>
 </body>
 </html>

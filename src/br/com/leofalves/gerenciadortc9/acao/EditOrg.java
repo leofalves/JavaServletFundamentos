@@ -33,7 +33,7 @@ public class EditOrg {
 		org.setOpeningDate(openingDate);
 		
 		//response.sendRedirect("entrada?acao=ListOrg");
-		return "redirect:entrada?acao=ListOrg";
+		return "redirect:entrada?acao=ListaEmpresas";
 
 	}
 

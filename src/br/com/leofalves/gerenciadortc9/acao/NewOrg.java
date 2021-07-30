@@ -35,7 +35,7 @@ public class NewOrg {
 		bd.add(org);
 
 		//response.sendRedirect("entrada?acao=ListOrg");
-		return "redirect:entrada?acao=ListOrg";
+		return "redirect:entrada?acao=ListaEmpresas";
 	}
 
 }

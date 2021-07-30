@@ -13,6 +13,7 @@ import br.com.leofalves.gerenciadortc9.acao.DeletaOrg;
 import br.com.leofalves.gerenciadortc9.acao.EditOrg;
 import br.com.leofalves.gerenciadortc9.acao.ListaEmpresas;
 import br.com.leofalves.gerenciadortc9.acao.NewOrg;
+import br.com.leofalves.gerenciadortc9.acao.NewOrgForm;
 import br.com.leofalves.gerenciadortc9.acao.ShowOrg;
 
 @WebServlet("/entrada")
@@ -24,12 +25,12 @@ public class EntradaUnicaServlet extends HttpServlet {
 		String paramAction = request.getParameter("acao");
 		String retAcao = null;
 		
-		if (paramAction.equals("ListOrg")) {
+		if (paramAction.equals("ListaEmpresas")) {
 			System.out.println("Listando as organizacoes a partir da entrada única...");
 			ListaEmpresas acao = new ListaEmpresas();
 			retAcao = acao.executa(request, response);
 			
-		} else if (paramAction.equals("DeleteOrg")) {
+		} else if (paramAction.equals("DeletaOrg")) {
 			System.out.println("Deletando organização a partir da entrada única...");
 			DeletaOrg acao = new DeletaOrg();
 			retAcao = acao.executa(request, response);
@@ -49,11 +50,16 @@ public class EntradaUnicaServlet extends HttpServlet {
 			NewOrg acao = new NewOrg();
 			retAcao = acao.executa(request, response);
 			
-		}
+		} else if (paramAction.equals("NewOrgForm")) {
+			System.out.println("Chamando o Form JSP para incluir uma organização a partir da entrada única...");
+			NewOrgForm acao = new NewOrgForm();
+			retAcao = acao.executa(request, response);
+		
+		}		
 		
 		String[] tipoEEndereco = retAcao.split(":");
 		if(tipoEEndereco[0].equals("forward")) {
-			RequestDispatcher rd = request.getRequestDispatcher(tipoEEndereco[1]);
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view" + tipoEEndereco[1]);
 			rd.forward(request, response);			
 		} else {
 			response.sendRedirect(tipoEEndereco[1]);			

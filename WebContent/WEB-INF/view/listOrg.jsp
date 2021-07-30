@@ -17,12 +17,12 @@
 	<ul>
 		<c:forEach items="${ organizations }" var="org">
 			<li>${ org.name } - <fmt:formatDate value="${ org.openingDate }" pattern="dd/MM/yyyy"/>
-			| <a href="entrada?acao=DeleteOrg&id=${ org.id }">Excluir</a>
+			| <a href="entrada?acao=DeletaOrg&id=${ org.id }">Excluir</a>
 			| <a href="entrada?acao=ShowOrg&id=${ org.id }">Editar</a>
 			</li>
 		</c:forEach>
 	</ul>	
 	<br />
-	<a href="formNewOrg.jsp">Criar nova Empresa</a>
+	<a href="entrada?acao=NewOrgForm">Criar nova Empresa</a>
 </body>
 </html>

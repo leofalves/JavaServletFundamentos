@@ -6,11 +6,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class NewOrgForm implements Acao {
-	
-	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		return "forward:/formNewOrg.jsp";
-	}
-
+public interface Acao {
+	String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 }

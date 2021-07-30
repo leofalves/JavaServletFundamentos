@@ -9,12 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.leofalves.gerenciadortc9.acao.DeletaOrg;
-import br.com.leofalves.gerenciadortc9.acao.EditOrg;
-import br.com.leofalves.gerenciadortc9.acao.ListaEmpresas;
-import br.com.leofalves.gerenciadortc9.acao.NewOrg;
-import br.com.leofalves.gerenciadortc9.acao.NewOrgForm;
-import br.com.leofalves.gerenciadortc9.acao.ShowOrg;
+import br.com.leofalves.gerenciadortc9.acao.Acao;
 
 @WebServlet("/entrada")
 public class EntradaUnicaServlet extends HttpServlet {
@@ -25,37 +20,17 @@ public class EntradaUnicaServlet extends HttpServlet {
 		String paramAction = request.getParameter("acao");
 		String retAcao = null;
 		
-		if (paramAction.equals("ListaEmpresas")) {
-			System.out.println("Listando as organizacoes a partir da entrada única...");
-			ListaEmpresas acao = new ListaEmpresas();
-			retAcao = acao.executa(request, response);
-			
-		} else if (paramAction.equals("DeletaOrg")) {
-			System.out.println("Deletando organização a partir da entrada única...");
-			DeletaOrg acao = new DeletaOrg();
-			retAcao = acao.executa(request, response);
-			
-		} else if (paramAction.equals("EditOrg")) {
-			System.out.println("Editando organização a partir da entrada única...");
-			EditOrg acao = new EditOrg();
-			retAcao = acao.executa(request, response);
-			
-		} else if (paramAction.equals("ShowOrg")) {
-			System.out.println("Exibindo organização a partir da entrada única...");
-			ShowOrg acao = new ShowOrg();
-			retAcao = acao.executa(request, response);
+		String nomeDaClasse = "br.com.leofalves.gerenciadortc9.acao." + paramAction;
 		
-		} else if (paramAction.equals("NewOrg")) {
-			System.out.println("Incluindo organização a partir da entrada única...");
-			NewOrg acao = new NewOrg();
+		try {
+			// Design Pattern: Command (Classes com métodos únicos que executam uma ação ou comando)
+			Class classe = Class.forName(nomeDaClasse); // Carrega a classe com o nome
+			Acao acao = (Acao) classe.newInstance(); // faz o Cast para a Interface Acao
 			retAcao = acao.executa(request, response);
-			
-		} else if (paramAction.equals("NewOrgForm")) {
-			System.out.println("Chamando o Form JSP para incluir uma organização a partir da entrada única...");
-			NewOrgForm acao = new NewOrgForm();
-			retAcao = acao.executa(request, response);
-		
-		}		
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+			e.printStackTrace();
+			throw new ServletException(e);
+		} 
 		
 		String[] tipoEEndereco = retAcao.split(":");
 		if(tipoEEndereco[0].equals("forward")) {

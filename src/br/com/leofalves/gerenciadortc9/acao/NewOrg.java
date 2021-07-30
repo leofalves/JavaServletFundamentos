@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.leofalves.gerenciadortc9.model.BancoDados;
 import br.com.leofalves.gerenciadortc9.model.Organization;
 
-public class NewOrg {
+public class NewOrg implements Acao {
 	
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String orgName = request.getParameter("OrgName");

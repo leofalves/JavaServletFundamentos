@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.leofalves.gerenciadortc9.model.BancoDados;
 
-public class DeletaOrg {
+public class DeletaOrg implements Acao {
 	
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Integer OrgId = Integer.valueOf(request.getParameter("id"));

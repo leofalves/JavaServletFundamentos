@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.leofalves.gerenciadortc9.model.BancoDados;
 import br.com.leofalves.gerenciadortc9.model.Organization;
 
-public class EditOrg {
+public class EditOrg implements Acao {
 	
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Integer OrgId = Integer.valueOf(request.getParameter("id"));

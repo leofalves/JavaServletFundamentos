@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.leofalves.gerenciadortc9.model.BancoDados;
 import br.com.leofalves.gerenciadortc9.model.Organization;
@@ -13,6 +14,7 @@ import br.com.leofalves.gerenciadortc9.model.Organization;
 public class ListaEmpresas implements Acao {
 	
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		BancoDados bd = new BancoDados();
 		List<Organization> lista = bd.getOrganizations();
 		

@@ -9,6 +9,9 @@
 <title>Java Standard Tag Lib - Organizations List</title>
 </head>
 <body>
+
+	<p>Usuario Logado: ${ usuarioLogado.login }</p>
+
 	<c:if test="${not empty orgName }">
 		<p>Empresa ${ orgName } cadastrada com sucesso!</p> <br />
 	</c:if>

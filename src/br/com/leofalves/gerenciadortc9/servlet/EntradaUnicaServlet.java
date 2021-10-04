@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.leofalves.gerenciadortc9.acao.Acao;
 
@@ -19,8 +20,18 @@ public class EntradaUnicaServlet extends HttpServlet {
 		
 		String paramAction = request.getParameter("acao");
 		String retAcao = null;
-		
 		String nomeDaClasse = "br.com.leofalves.gerenciadortc9.acao." + paramAction;
+		
+		
+		HttpSession session = request.getSession();
+		boolean usuarioNaoEstaLogado = (session.getAttribute("usuarioLogado") == null);
+		boolean ehUmaAcaoProtegida = !(paramAction.equals("Login") || paramAction.equals("LoginForm"));
+		
+		if (ehUmaAcaoProtegida && usuarioNaoEstaLogado) {
+			response.sendRedirect("entrada?acao=LoginForm");
+			return;
+		}
+		
 		
 		try {
 			// Design Pattern: Command (Classes com métodos únicos que executam uma ação ou comando)

@@ -13,5 +13,7 @@
 		<input type="submit">
 		<input type="hidden" name="acao" value="NewOrg" />
 	</form>
+	<br/>
+	<c:import url="logout-partial.jsp" />
 </body>
 </html>

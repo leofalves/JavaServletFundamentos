@@ -15,5 +15,7 @@
 		<input type="hidden" name="acao" value="EditOrg" />
 		<input type="submit" />
 	</form>
+	<br/>
+	<c:import url="logout-partial.jsp" />
 </body>
 </html>

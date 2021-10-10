@@ -9,7 +9,6 @@
 <title>Java Standard Tag Lib - Organizations List</title>
 </head>
 <body>
-
 	<p>Usuario Logado: ${ usuarioLogado.login }</p>
 
 	<c:if test="${not empty orgName }">
@@ -25,7 +24,9 @@
 			</li>
 		</c:forEach>
 	</ul>	
-	<br />
+	<br/>
 	<a href="entrada?acao=NewOrgForm">Criar nova Empresa</a>
+	<br/>
+	<c:import url="logout-partial.jsp" />
 </body>
 </html>

@@ -6,7 +6,6 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import br.com.leofalves.gerenciadortc9.model.BancoDados;
 import br.com.leofalves.gerenciadortc9.model.Organization;
@@ -21,8 +20,8 @@ public class ListaEmpresas implements Acao {
 		request.setAttribute("organizations", lista);
 		//RequestDispatcher rd = request.getRequestDispatcher("/listOrg.jsp");
 		//rd.forward(request, response);
+	
 		return "forward:/listOrg.jsp";
-
 	}
 
 }
